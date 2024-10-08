@@ -13,14 +13,14 @@ class Person implements ConverterInterface
     public function convert(mixed $value, array $context = []): string
     {
         $converter = new Faker(new FakerService());
-        $converter->setParameters(['firstName']);
+        $converter->setParameters(['formatter' => 'firstName']);
         $firstName = $converter->convert($value, $context);
 
         $converter = new Faker(new FakerService());
-        $converter->setParameters(['firstName']);
+        $converter->setParameters(['formatter' => 'lastName']);
         $lastName = $converter->convert($value, $context);
 
-        return 'test tester'; //$firstName . ' ' . $lastName;
+        return "$firstName $lastName";
     }
 
     public function setParameters(array $parameters): void
