@@ -117,6 +117,8 @@ class Compiler
                 ),
             $finder($this->basePath . '/app')
                 ->notName(['example.yaml']),
+            $finder($this->basePath . '/src/TsvProvider')
+                ->name(['*.tsv.gz']),
         ];
     }
 
